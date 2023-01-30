@@ -1,12 +1,12 @@
 const rotatorArray = Array.from(document.querySelectorAll('.rotator__case'));
 let currentRotator = 0;
-
-setInterval(addChange, 1000);
+let delay = 1000;
+setInterval(addChange, delay);
 
 function getDataSet() {
     let dataSet = rotatorArray[currentRotator].dataset;
     rotatorArray[currentRotator].style.color = dataSet.color;
-    // rotatorArray[currentRotator].style.speed = dataSet.speed;
+    delay = rotatorArray[currentRotator].style.speed = dataSet.speed;
 }
 
 function addChange() {
@@ -22,6 +22,8 @@ function addChange() {
         rotatorArray[currentRotator].classList.add('rotator__case_active');
         getDataSet();
     }
+    setTimeout(addChange, delay);
+
 }
   
 
