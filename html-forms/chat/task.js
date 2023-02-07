@@ -14,7 +14,18 @@ const answers = [
 
 function inputMessage(e) {
     let index = Math.floor(Math.random() * (answers.length));
-    if (e.key === 'Enter' && input.value !== '') {
+
+    if (!input.value.trim()) false;
+
+    // if (input.value == null ||
+    //     input.value == undefined ||
+    //     input.value.length == 0) {
+    //             alert("Запрос не может быть пустым!\n");
+    //             return false;
+    //         }
+
+    else if (e.key === 'Enter' && input.value !== '') {
+    
         messages.innerHTML += `
         <div class="message message_client">
             <div class="message__time">${`${(new Date).getHours()}:${(new Date).getMinutes()}`}</div>
